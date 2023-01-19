@@ -35,4 +35,15 @@ public class AssetBOImpl implements AssetBO {
         return ((Float.valueOf(result)));
     }
 
+    @Override
+    public Asset insert(String name, String url, long amount, String description) {
+        Asset a = new Asset();
+        a.setAmount(amount);
+        a.setName(name);
+        a.setDescription(description);
+        a.setUrl(url);
+        assetRepository.save(a);
+        return a;
+    }
+
 }

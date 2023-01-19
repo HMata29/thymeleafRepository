@@ -12,6 +12,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
@@ -42,6 +43,14 @@ public class HomeController {
         model.addAttribute("BTC_Value",assetBO.getCurrentValue());
         model.addAttribute("categories",categoryBO.getAllCategory());
         return "main.html";
+    }
+
+
+    @PostMapping(value = "/insert")
+    public String insert(Model model, @RequestParam("name") String name, @RequestParam("url") String url, @RequestParam ("amount")long amount, @RequestParam("description") String descrption){
+        Asset newAsset = assetBO.insert(name,url,amount,descrption);
+        model.addAttribute("newAsset",newAsset);
+        return "create.html";
     }
 
 }

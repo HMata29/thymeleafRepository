@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+    layout:decorate="~{main}">
+<head>
+</head>
+<body>
+
+<form method="post" th:action="@{/insert}" >
+    <label for="name">Name:</label>
+    <input type="text" name="name" id="name">
+    <label for="url">Url:</label>
+    <input type="text" name="url" id="url">
+    <label for="amount">Amount:</label>
+    <input type="number" name="amount" id="amount">
+    <label for="description">Description</label>
+    <input id="description" name="description" type="text">
+    <button type="submit" value="invia">Invia</button>
+</form>
+</body>
+</html>

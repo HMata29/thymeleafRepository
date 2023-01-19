@@ -11,4 +11,7 @@ public interface AssetBO {
 
     Page<Asset> findAll(Pageable paging);
     float getCurrentValue();
+
+    Asset insert(String name, String url, long amount, String description);
+
 }
